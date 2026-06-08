@@ -80,16 +80,16 @@ export const Register = () => {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
-      <div className="bg-white border border-slate-100 p-8 rounded-2xl shadow-xl">
+      <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-805 p-8 rounded-2xl shadow-xl">
         {/* Title */}
         <div className="text-center mb-8">
-          <span className="text-2xl font-black tracking-wider text-indigo-900 uppercase">
+          <span className="text-2xl font-black tracking-wider text-indigo-900 dark:text-indigo-400 uppercase">
             OMNITECH
           </span>
-          <h2 className="mt-3 text-2xl font-bold text-slate-800">
+          <h2 className="mt-3 text-2xl font-bold text-slate-800 dark:text-slate-100">
             Créer votre compte
           </h2>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
             Rejoignez-nous pour publier des articles et interagir avec la communauté.
           </p>
         </div>
@@ -144,7 +144,7 @@ export const Register = () => {
           </div>
 
           {/* Nom / Prénom (Grid 2 cols) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-slate-100">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-slate-100 dark:border-slate-800">
             <Input
               label="Prénom"
               placeholder="Ex: Jean"
@@ -192,11 +192,11 @@ export const Register = () => {
         </form>
 
         {/* Footnote */}
-        <div className="mt-6 text-center text-sm text-slate-555 border-t border-slate-100 pt-6">
+        <div className="mt-6 text-center text-sm text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800 pt-6">
           Déjà un compte ?{' '}
           <Link
             to="/login"
-            className="font-semibold text-indigo-900 hover:text-indigo-950 hover:underline transition-colors"
+            className="font-semibold text-indigo-900 dark:text-indigo-400 hover:text-indigo-950 dark:hover:text-indigo-300 hover:underline transition-colors"
           >
             Se connecter
           </Link>

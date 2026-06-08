@@ -111,10 +111,10 @@ export const EditArticle = () => {
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="bg-white rounded-2xl border border-slate-100 p-6 sm:p-8 shadow-sm">
-        <div className="flex items-center gap-2 mb-6 pb-4 border-b border-slate-100">
-          <BookOpen className="w-6 h-6 text-indigo-900" />
-          <h1 className="text-xl font-bold text-slate-800">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <div className="flex items-center gap-2 mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
+          <BookOpen className="w-6 h-6 text-indigo-900 dark:text-indigo-400" />
+          <h1 className="text-xl font-bold text-slate-800 dark:text-slate-100">
             Modifier l'article
           </h1>
         </div>
@@ -152,7 +152,7 @@ export const EditArticle = () => {
           />
 
           {/* Action buttons */}
-          <div className="flex items-center justify-end gap-3 mt-4 pt-4 border-t border-slate-100">
+          <div className="flex items-center justify-end gap-3 mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
             <Button
               variant="outline"
               onClick={() => navigate(`/articles/${id}`)}

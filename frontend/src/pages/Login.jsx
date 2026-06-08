@@ -40,23 +40,23 @@ export const Login = () => {
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
-      <div className="max-w-md w-full bg-white border border-slate-100 p-8 rounded-2xl shadow-xl">
+      <div className="max-w-md w-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 rounded-2xl shadow-xl">
         {/* Title */}
         <div className="text-center mb-8">
-          <span className="text-2xl font-black tracking-wider text-indigo-900 uppercase">
+          <span className="text-2xl font-black tracking-wider text-indigo-900 dark:text-indigo-400 uppercase">
             OMNITECH
           </span>
-          <h2 className="mt-3 text-2xl font-bold text-slate-800">
+          <h2 className="mt-3 text-2xl font-bold text-slate-800 dark:text-slate-100">
             Connexion à votre espace
           </h2>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
             Entrez vos identifiants pour accéder aux fonctionnalités de publication.
           </p>
         </div>
 
         {/* Global error */}
         {error && (
-          <div className="mb-4 p-3.5 bg-red-50 border border-red-200 rounded-lg text-xs font-semibold text-red-750 text-center">
+          <div className="mb-4 p-3.5 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 rounded-lg text-xs font-semibold text-red-750 dark:text-red-300 text-center">
             {error}
           </div>
         )}
@@ -93,11 +93,11 @@ export const Login = () => {
         </form>
 
         {/* Footnote */}
-        <div className="mt-6 text-center text-sm text-slate-550 border-t border-slate-100 pt-6">
+        <div className="mt-6 text-center text-sm text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800 pt-6">
           Nouveau sur OMNITECH ?{' '}
           <Link
             to="/register"
-            className="font-semibold text-indigo-900 hover:text-indigo-950 hover:underline transition-colors"
+            className="font-semibold text-indigo-900 dark:text-indigo-400 hover:text-indigo-950 dark:hover:text-indigo-300 hover:underline transition-colors"
           >
             Créer un compte gratuitement
           </Link>

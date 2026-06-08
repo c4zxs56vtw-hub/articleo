@@ -16,10 +16,10 @@ export const Button = ({
   const baseStyle = "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-98";
 
   const variants = {
-    primary: "bg-indigo-900 hover:bg-indigo-950 text-white focus:ring-indigo-800 shadow-sm",
-    secondary: "bg-slate-200 hover:bg-slate-350 text-slate-800 focus:ring-slate-400",
-    outline: "bg-transparent border border-slate-300 text-slate-700 hover:bg-slate-50 focus:ring-slate-400",
-    danger: "bg-red-600 hover:bg-red-700 text-white focus:ring-red-500 shadow-sm"
+    primary: "bg-indigo-900 hover:bg-indigo-950 text-white focus:ring-indigo-800 shadow-sm dark:bg-indigo-700 dark:hover:bg-indigo-600 dark:focus:ring-indigo-550",
+    secondary: "bg-slate-200 hover:bg-slate-300 text-slate-800 focus:ring-slate-400 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:focus:ring-slate-600",
+    outline: "bg-transparent border border-slate-300 text-slate-700 hover:bg-slate-50 focus:ring-slate-400 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:focus:ring-slate-600",
+    danger: "bg-red-600 hover:bg-red-700 text-white focus:ring-red-500 shadow-sm dark:bg-red-700 dark:hover:bg-red-600 dark:focus:ring-red-500"
   };
 
   const sizes = {

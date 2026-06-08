@@ -149,15 +149,15 @@ export const Profile = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Title */}
-      <h1 className="text-3xl font-extrabold text-slate-800 mb-8 border-b border-slate-100 pb-4">
+      <h1 className="text-3xl font-extrabold text-slate-800 dark:text-slate-100 mb-8 border-b border-slate-100 dark:border-slate-800 pb-4">
         Mon Profil & Espace Personnel
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Profile Editing Form */}
-        <section className="bg-white border border-slate-100 p-6 sm:p-8 rounded-2xl shadow-sm h-fit">
-          <h2 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
-            <User className="w-5 h-5 text-indigo-900" />
+        <section className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm h-fit">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-6 flex items-center gap-2">
+            <User className="w-5 h-5 text-indigo-900 dark:text-indigo-400" />
             Informations de Profil
           </h2>
 
@@ -219,9 +219,9 @@ export const Profile = () => {
         </section>
 
         {/* Bookmarked articles (Private signets list) */}
-        <section className="lg:col-span-2 bg-white border border-slate-100 p-6 sm:p-8 rounded-2xl shadow-sm">
-          <h2 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
-            <Bookmark className="w-5 h-5 text-indigo-900 fill-indigo-900" />
+        <section className="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-6 flex items-center gap-2">
+            <Bookmark className="w-5 h-5 text-indigo-900 dark:text-indigo-400 fill-indigo-900 dark:fill-indigo-400" />
             Mes Signets ({totalBookmarks})
           </h2>
 

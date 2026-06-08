@@ -20,10 +20,10 @@ export const CommentCard = ({
   };
 
   return (
-    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-xl shadow-sm transition-all duration-200 hover:shadow-md">
+    <div className="flex gap-4 p-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl shadow-sm transition-all duration-200 hover:shadow-md">
       {/* Avatar wrapper */}
       <div className="flex-shrink-0">
-        <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 border border-slate-200">
+        <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
           <User className="w-5 h-5" />
         </div>
       </div>
@@ -33,13 +33,13 @@ export const CommentCard = ({
         {/* Header */}
         <div className="flex items-center justify-between gap-2 mb-1.5">
           <div>
-            <span className="font-semibold text-sm text-slate-800">{auteur}</span>
-            <span className="text-xs text-slate-400 ml-2.5">{formatDate(created_at)}</span>
+            <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">{auteur}</span>
+            <span className="text-xs text-slate-400 dark:text-slate-500 ml-2.5">{formatDate(created_at)}</span>
           </div>
           {onDelete && (
             <button
               onClick={() => onDelete(id)}
-              className="p-1 rounded-full text-slate-400 hover:bg-red-50 hover:text-red-650 transition-colors"
+              className="p-1 rounded-full text-slate-400 hover:bg-red-50 dark:hover:bg-red-950/20 hover:text-red-650 transition-colors"
               title="Supprimer le commentaire"
             >
               <Trash2 className="w-3.5 h-3.5" />
@@ -48,7 +48,7 @@ export const CommentCard = ({
         </div>
 
         {/* Text */}
-        <p className="text-sm text-slate-650 leading-relaxed whitespace-pre-wrap mb-3">
+        <p className="text-sm text-slate-650 dark:text-slate-350 leading-relaxed whitespace-pre-wrap mb-3">
           {texte}
         </p>
 

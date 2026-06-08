@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { Menu, X, User as UserIcon, LogOut, Bookmark, PlusCircle, LayoutDashboard, Tag } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext';
+import { Menu, X, User as UserIcon, LogOut, Bookmark, PlusCircle, LayoutDashboard, Tag, Sun, Moon } from 'lucide-react';
 import Button from '../common/Button';
 
 export const Navbar = () => {
   const { user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -20,18 +22,18 @@ export const Navbar = () => {
   const navLinkClass = ({ isActive }) =>
     `text-sm font-semibold transition-colors duration-250 py-2 border-b-2 ${
       isActive
-        ? 'border-indigo-900 text-indigo-900 font-bold'
-        : 'border-transparent text-slate-500 hover:text-slate-800'
+        ? 'border-indigo-900 dark:border-indigo-400 text-indigo-900 dark:text-indigo-400 font-bold'
+        : 'border-transparent text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
     }`;
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/80 backdrop-blur-md border-b border-slate-150/80">
+    <header className="sticky top-0 z-40 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-150/80 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo / Brand name */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center gap-2">
-              <span className="text-xl font-black tracking-wider text-indigo-900 uppercase">
+              <span className="text-xl font-black tracking-wider text-indigo-900 dark:text-indigo-400 uppercase">
                 OMNITECH
               </span>
             </Link>
@@ -49,6 +51,13 @@ export const Navbar = () => {
 
           {/* Desktop Auth Section */}
           <div className="hidden md:flex items-center gap-4">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors"
+              title={theme === 'dark' ? "Passer au mode clair" : "Passer au mode sombre"}
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5" />}
+            </button>
             {user ? (
               <div className="flex items-center gap-4">
                 <Button
@@ -64,7 +73,7 @@ export const Navbar = () => {
                 <div className="relative">
                   <button
                     onClick={() => setShowProfileMenu(!showProfileMenu)}
-                    className="flex items-center gap-2 p-1.5 rounded-full bg-slate-50 border border-slate-200 hover:bg-slate-100 transition-colors focus:outline-none"
+                    className="flex items-center gap-2 p-1.5 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-750 transition-colors focus:outline-none"
                   >
                     <div className="w-8 h-8 rounded-full bg-indigo-900 text-white flex items-center justify-center font-bold text-sm">
                       {user.username.substring(0, 2).toUpperCase()}
@@ -80,21 +89,21 @@ export const Navbar = () => {
                         className="fixed inset-0 z-10"
                         onClick={() => setShowProfileMenu(false)}
                       />
-                      <div className="absolute right-0 mt-2 w-56 origin-top-right rounded-xl bg-white p-1.5 shadow-xl ring-1 ring-black/5 focus:outline-none z-20 border border-slate-100">
-                        <div className="px-3 py-2 border-b border-slate-100 mb-1">
-                          <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                      <div className="absolute right-0 mt-2 w-56 origin-top-right rounded-xl bg-white dark:bg-slate-900 p-1.5 shadow-xl ring-1 ring-black/5 focus:outline-none z-20 border border-slate-100 dark:border-slate-800">
+                        <div className="px-3 py-2 border-b border-slate-100 dark:border-slate-800 mb-1">
+                          <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                             Mon compte
                           </p>
-                          <p className="text-sm font-bold text-slate-800 truncate">
+                          <p className="text-sm font-bold text-slate-800 dark:text-slate-200 truncate">
                             {user.first_name || user.username} {user.last_name}
                           </p>
-                          <p className="text-xs text-slate-500 truncate">{user.email}</p>
+                          <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{user.email}</p>
                         </div>
                         
                         <Link
                           to="/profile"
                           onClick={() => setShowProfileMenu(false)}
-                          className="flex w-full items-center gap-2 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 rounded-lg transition-colors"
+                          className="flex w-full items-center gap-2 px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
                         >
                           <UserIcon className="w-4 h-4 text-slate-400" />
                           <span>Mon Profil</span>
@@ -103,7 +112,7 @@ export const Navbar = () => {
                         <Link
                           to="/categories"
                           onClick={() => setShowProfileMenu(false)}
-                          className="flex w-full items-center gap-2 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 rounded-lg transition-colors"
+                          className="flex w-full items-center gap-2 px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
                         >
                           <Tag className="w-4 h-4 text-slate-400" />
                           <span>Catégories</span>
@@ -111,7 +120,7 @@ export const Navbar = () => {
                         
                         <button
                           onClick={handleLogout}
-                          className="flex w-full items-center gap-2 px-3 py-2 text-sm text-red-650 hover:bg-red-50 rounded-lg transition-colors text-left"
+                          className="flex w-full items-center gap-2 px-3 py-2 text-sm text-red-650 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors text-left"
                         >
                           <LogOut className="w-4 h-4 text-red-400" />
                           <span>Déconnexion</span>
@@ -137,8 +146,15 @@ export const Navbar = () => {
             )}
           </div>
 
-          {/* Mobile menu button */}
-          <div className="flex md:hidden">
+          {/* Mobile menu button and theme toggle */}
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors"
+              title={theme === 'dark' ? "Mode clair" : "Mode sombre"}
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5" />}
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700 transition-colors focus:outline-none"
@@ -151,36 +167,36 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden border-b border-slate-150 bg-white/95 backdrop-blur-md py-4 px-4 space-y-4">
+        <div className="md:hidden border-b border-slate-150 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md py-4 px-4 space-y-4">
           <nav className="flex flex-col gap-2">
             <Link
               to="/"
               onClick={() => setIsOpen(false)}
-              className="px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 font-semibold transition-colors"
+              className="px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold transition-colors"
             >
               Accueil
             </Link>
             <Link
               to="/about"
               onClick={() => setIsOpen(false)}
-              className="px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 font-semibold transition-colors"
+              className="px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold transition-colors"
             >
               À Propos
             </Link>
           </nav>
 
-          <div className="border-t border-slate-100 pt-4">
+          <div className="border-t border-slate-100 dark:border-slate-800 pt-4">
             {user ? (
               <div className="flex flex-col gap-3">
                 <div className="px-3 py-1.5 mb-1">
-                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Connecté en tant que</p>
-                  <p className="text-sm font-bold text-slate-800">{user.username}</p>
+                  <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Connecté en tant que</p>
+                  <p className="text-sm font-bold text-slate-800 dark:text-slate-200">{user.username}</p>
                 </div>
                 
                 <Link
                   to="/create-article"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-2 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
                 >
                   <PlusCircle className="w-4.5 h-4.5 text-slate-400" />
                   <span>Publier un article</span>
@@ -189,7 +205,7 @@ export const Navbar = () => {
                 <Link
                   to="/profile"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-2 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
                 >
                   <UserIcon className="w-4.5 h-4.5 text-slate-400" />
                   <span>Mon Profil & Signets</span>
@@ -198,7 +214,7 @@ export const Navbar = () => {
                 <Link
                   to="/categories"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-2 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
                 >
                   <Tag className="w-4.5 h-4.5 text-slate-400" />
                   <span>Gérer les catégories</span>
@@ -206,7 +222,7 @@ export const Navbar = () => {
 
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-2 px-3 py-2 text-sm text-red-650 hover:bg-red-50 rounded-lg transition-colors text-left"
+                  className="flex items-center gap-2 px-3 py-2 text-sm text-red-650 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors text-left"
                 >
                   <LogOut className="w-4.5 h-4.5 text-red-400" />
                   <span>Déconnexion</span>

@@ -44,16 +44,16 @@ export const Modal = ({
 
       {/* Modal Content */}
       <div
-        className={`relative w-full ${sizeClasses[size]} rounded-2xl bg-white shadow-2xl ring-1 ring-slate-900/5 transition-all duration-300 transform scale-100 flex flex-col`}
+        className={`relative w-full ${sizeClasses[size]} rounded-2xl bg-white dark:bg-slate-900 shadow-2xl ring-1 ring-slate-900/5 border border-slate-100 dark:border-slate-800 transition-all duration-300 transform scale-100 flex flex-col`}
         role="dialog"
         aria-modal="true"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800">{title}</h3>
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800">
+          <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{title}</h3>
           <button
             onClick={onClose}
-            className="p-1 rounded-full text-slate-400 hover:bg-slate-155 hover:text-slate-600 transition-colors"
+            className="p-1 rounded-full text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-655 dark:hover:text-slate-300 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>

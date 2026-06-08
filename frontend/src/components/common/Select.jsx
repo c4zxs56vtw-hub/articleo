@@ -25,10 +25,10 @@ export const Select = React.forwardRef(({
         ref={ref}
         required={required}
         className={`
-          block w-full rounded-lg border text-sm transition-all duration-200 px-4 py-2.5 bg-white
+          block w-full rounded-lg border text-sm transition-all duration-200 px-4 py-2.5 bg-white dark:bg-slate-900 dark:border-slate-800 dark:text-slate-100
           ${error 
-            ? 'border-red-300 text-red-900 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500' 
-            : 'border-slate-200 text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-900 focus:border-indigo-900'
+            ? 'border-red-300 text-red-900 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500 dark:bg-slate-900 dark:text-red-200' 
+            : 'border-slate-200 text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-900 focus:border-indigo-900 dark:focus:ring-indigo-400 dark:focus:border-indigo-400'
           }
         `}
         {...props}

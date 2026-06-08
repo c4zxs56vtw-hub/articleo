@@ -138,12 +138,12 @@ export const Categories = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 border-b border-slate-100 pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 border-b border-slate-100 dark:border-slate-800 pb-4">
         <div>
-          <h1 className="text-3xl font-extrabold text-slate-800">
+          <h1 className="text-3xl font-extrabold text-slate-800 dark:text-slate-100">
             Gestion des Catégories
           </h1>
-          <p className="text-sm text-slate-500 mt-1">
+          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
             Créez, modifiez ou supprimez les thèmes qui structurent les articles de la plateforme.
           </p>
         </div>
@@ -168,14 +168,14 @@ export const Categories = () => {
           {categories.map((cat) => (
             <div
               key={cat.id}
-              className="p-5 bg-white border border-slate-100 hover:border-slate-200 shadow-sm rounded-xl flex justify-between gap-4 transition-all duration-200 hover:shadow-md"
+              className="p-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-slate-200 dark:hover:border-slate-700 shadow-sm rounded-xl flex justify-between gap-4 transition-all duration-200 hover:shadow-md"
             >
               <div className="flex-grow">
-                <h3 className="font-bold text-slate-800 flex items-center gap-1.5 mb-1.5">
-                  <Tag className="w-4 h-4 text-indigo-900" />
+                <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 mb-1.5">
+                  <Tag className="w-4 h-4 text-indigo-900 dark:text-indigo-400" />
                   {cat.nom}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
                   {cat.description || "Aucune description fournie."}
                 </p>
               </div>
@@ -184,14 +184,14 @@ export const Categories = () => {
               <div className="flex flex-col justify-start gap-1">
                 <button
                   onClick={() => handleOpenEditModal(cat)}
-                  className="p-1.5 rounded-lg text-slate-400 hover:bg-slate-50 hover:text-indigo-900 transition-colors"
+                  className="p-1.5 rounded-lg text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-indigo-900 dark:hover:text-indigo-400 transition-colors"
                   title="Modifier la catégorie"
                 >
                   <Edit className="w-4.5 h-4.5" />
                 </button>
                 <button
                   onClick={() => handleDeleteCategory(cat.id, cat.nom)}
-                  className="p-1.5 rounded-lg text-slate-400 hover:bg-red-50 hover:text-red-600 transition-colors"
+                  className="p-1.5 rounded-lg text-slate-400 hover:bg-red-50 dark:hover:bg-red-950/20 hover:text-red-655 dark:hover:text-red-400 transition-colors"
                   title="Supprimer la catégorie"
                 >
                   <Trash2 className="w-4.5 h-4.5" />
@@ -221,8 +221,8 @@ export const Categories = () => {
       >
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           {editingCategory && (
-            <div className="p-3 bg-yellow-50 border border-yellow-150 text-yellow-805 rounded-lg text-xs flex gap-2 items-start">
-              <AlertTriangle className="w-5 h-5 text-yellow-700 flex-shrink-0 mt-0.5" />
+            <div className="p-3 bg-yellow-50 dark:bg-yellow-950/20 border border-yellow-150 dark:border-yellow-900 text-yellow-800 dark:text-yellow-250 rounded-lg text-xs flex gap-2 items-start">
+              <AlertTriangle className="w-5 h-5 text-yellow-700 dark:text-yellow-500 flex-shrink-0 mt-0.5" />
               <span>
                 <strong>Attention</strong> : Renommer cette catégorie affectera immédiatement tous les articles actuellement associés.
               </span>
@@ -247,7 +247,7 @@ export const Categories = () => {
             rows={3}
           />
 
-          <div className="flex justify-end gap-2.5 mt-4 pt-3 border-t border-slate-100">
+          <div className="flex justify-end gap-2.5 mt-4 pt-3 border-t border-slate-100 dark:border-slate-805">
             <Button variant="outline" onClick={handleCloseModal} disabled={submitting}>
               Annuler
             </Button>

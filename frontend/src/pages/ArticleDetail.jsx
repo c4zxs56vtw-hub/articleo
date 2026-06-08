@@ -256,14 +256,14 @@ export const ArticleDetail = () => {
       {/* Back button */}
       <Link
         to="/"
-        className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-slate-800 mb-6 transition-colors"
+        className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 mb-6 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         Retour aux articles
       </Link>
 
       {/* Article Header Card */}
-      <article className="bg-white rounded-2xl border border-slate-100 p-6 sm:p-8 shadow-sm mb-8">
+      <article className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-6 sm:p-8 shadow-sm mb-8">
         <div className="flex items-center justify-between gap-4 mb-4">
           {article.categorie ? (
             <Badge variant="primary">{article.categorie.nom}</Badge>
@@ -279,11 +279,11 @@ export const ArticleDetail = () => {
               className={`p-2 rounded-full border transition-all ${
                 bookmarkId
                   ? 'bg-indigo-50 border-indigo-200 text-indigo-900'
-                  : 'bg-white border-slate-200 text-slate-400 hover:text-slate-655'
+                  : 'bg-white dark:bg-slate-850 border-slate-200 dark:border-slate-750 text-slate-450 dark:text-slate-400 hover:text-slate-850 dark:hover:text-slate-205'
               }`}
               title={bookmarkId ? "Retirer des signets" : "Enregistrer dans mes signets"}
             >
-              <Bookmark className={`w-4.5 h-4.5 ${bookmarkId ? 'fill-indigo-900' : ''}`} />
+              <Bookmark className={`w-4.5 h-4.5 ${bookmarkId ? 'fill-indigo-900 dark:fill-indigo-400' : ''}`} />
             </button>
 
             {/* Owner controls (Any authenticated user as there is no specific owner field) */}
@@ -291,14 +291,14 @@ export const ArticleDetail = () => {
               <>
                 <Link
                   to={`/edit-article/${article.id}`}
-                  className="p-2 rounded-full border border-slate-200 bg-white text-slate-450 hover:text-indigo-900 transition-colors"
+                  className="p-2 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-850 text-slate-450 dark:text-slate-300 hover:text-indigo-900 dark:hover:text-indigo-400 transition-colors"
                   title="Modifier l'article"
                 >
                   <Edit className="w-4.5 h-4.5" />
                 </Link>
                 <button
                   onClick={handleDeleteArticle}
-                  className="p-2 rounded-full border border-slate-200 bg-white text-slate-450 hover:text-red-600 transition-colors"
+                  className="p-2 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-850 text-slate-450 dark:text-slate-300 hover:text-red-650 dark:hover:text-red-400 transition-colors"
                   title="Supprimer l'article"
                 >
                   <Trash2 className="w-4.5 h-4.5" />
@@ -309,12 +309,12 @@ export const ArticleDetail = () => {
         </div>
 
         {/* Title */}
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-800 leading-snug mb-4">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-slate-100 leading-snug mb-4">
           {article.titre}
         </h1>
 
         {/* Metadata */}
-        <div className="flex flex-wrap items-center gap-4 text-xs text-slate-450 border-b border-slate-100 pb-6 mb-6">
+        <div className="flex flex-wrap items-center gap-4 text-xs text-slate-450 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 pb-6 mb-6">
           <span className="flex items-center gap-1">
             <Calendar className="w-3.5 h-3.5" />
             Publié le {formatDate(article.created_at)}
@@ -326,12 +326,12 @@ export const ArticleDetail = () => {
         </div>
 
         {/* Body content */}
-        <div className="prose max-w-none text-slate-655 leading-relaxed text-base whitespace-pre-wrap">
+        <div className="prose max-w-none text-slate-650 dark:text-slate-300 leading-relaxed text-base whitespace-pre-wrap">
           {article.contenu}
         </div>
 
         {/* Likes footer */}
-        <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
+        <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
           <Button
             variant={article.user_has_liked ? "primary" : "outline"}
             onClick={handleLikeArticle}
@@ -346,9 +346,9 @@ export const ArticleDetail = () => {
 
       {/* Similar Articles Panel */}
       {similaires.length > 0 && (
-        <section className="bg-slate-50 border border-slate-100 rounded-2xl p-6 sm:p-8 mb-8">
-          <h3 className="text-base font-bold text-slate-800 mb-4 flex items-center gap-2">
-            <Sparkles className="w-4.5 h-4.5 text-indigo-900" />
+        <section className="bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 sm:p-8 mb-8">
+          <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
+            <Sparkles className="w-4.5 h-4.5 text-indigo-900 dark:text-indigo-400" />
             Articles similaires recommandés
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -356,12 +356,12 @@ export const ArticleDetail = () => {
               <Link
                 key={sim.id}
                 to={`/articles/${sim.id}`}
-                className="block p-4 bg-white border border-slate-200 rounded-xl hover:border-slate-350 transition-colors shadow-sm"
+                className="block p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-slate-350 dark:hover:border-slate-700 transition-colors shadow-sm"
               >
-                <span className="text-xs font-semibold text-indigo-900 uppercase tracking-wide block mb-1">
+                <span className="text-xs font-semibold text-indigo-900 dark:text-indigo-400 uppercase tracking-wide block mb-1">
                   {sim.categorie ? sim.categorie.nom : 'Général'}
                 </span>
-                <h4 className="font-bold text-sm text-slate-850 line-clamp-1 mb-2">
+                <h4 className="font-bold text-sm text-slate-850 dark:text-slate-250 line-clamp-1 mb-2">
                   {sim.titre}
                 </h4>
                 <div className="flex items-center gap-2 text-xs text-slate-400">
@@ -375,14 +375,14 @@ export const ArticleDetail = () => {
       )}
 
       {/* Comments section */}
-      <section className="bg-white rounded-2xl border border-slate-100 p-6 sm:p-8 shadow-sm">
-        <h2 className="text-xl font-bold text-slate-800 mb-6">
+      <section className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-6">
           Discussion ({commentsCount})
         </h2>
 
         {/* Comment submission form */}
-        <div className="mb-8 p-4 bg-slate-50 rounded-xl border border-slate-100">
-          <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
+        <div className="mb-8 p-4 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-100 dark:border-slate-800">
+          <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">
             Ajouter un commentaire
           </h3>
           {user ? (
