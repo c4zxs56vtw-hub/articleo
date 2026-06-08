@@ -4,7 +4,7 @@ import { quizzesApi } from '../api/quizzesApi';
 import Loader from '../components/common/Loader';
 import Button from '../components/common/Button';
 import Badge from '../components/common/Badge';
-import { ArrowLeft, CheckCircle2, XCircle, Trophy, HelpCircle, RefreshCw, BookOpen, AlertCircle } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, XCircle, Trophy, HelpCircle, RefreshCw, BookOpen, AlertCircle, Play } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export const QuizPlay = () => {
