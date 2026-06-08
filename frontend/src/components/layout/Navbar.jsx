@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { Menu, X, User as UserIcon, LogOut, Bookmark, PlusCircle, LayoutDashboard } from 'lucide-react';
+import { Menu, X, User as UserIcon, LogOut, Bookmark, PlusCircle, LayoutDashboard, Tag } from 'lucide-react';
 import Button from '../common/Button';
 
 export const Navbar = () => {
@@ -99,6 +99,15 @@ export const Navbar = () => {
                           <UserIcon className="w-4 h-4 text-slate-400" />
                           <span>Mon Profil</span>
                         </Link>
+
+                        <Link
+                          to="/categories"
+                          onClick={() => setShowProfileMenu(false)}
+                          className="flex w-full items-center gap-2 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 rounded-lg transition-colors"
+                        >
+                          <Tag className="w-4 h-4 text-slate-400" />
+                          <span>Catégories</span>
+                        </Link>
                         
                         <button
                           onClick={handleLogout}
@@ -184,6 +193,15 @@ export const Navbar = () => {
                 >
                   <UserIcon className="w-4.5 h-4.5 text-slate-400" />
                   <span>Mon Profil & Signets</span>
+                </Link>
+
+                <Link
+                  to="/categories"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-2 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 rounded-lg transition-colors"
+                >
+                  <Tag className="w-4.5 h-4.5 text-slate-400" />
+                  <span>Gérer les catégories</span>
                 </Link>
 
                 <button

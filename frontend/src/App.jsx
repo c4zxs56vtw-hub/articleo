@@ -14,6 +14,7 @@ import EditArticle from './pages/EditArticle';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
+import Categories from './pages/Categories';
 import NotFound from './pages/NotFound';
 
 // Notifications
@@ -112,6 +113,14 @@ export const App = () => {
             element={
               <PrivateRoute>
                 <Profile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/categories"
+            element={
+              <PrivateRoute>
+                <Categories />
               </PrivateRoute>
             }
           />
