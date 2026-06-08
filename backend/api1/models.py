@@ -62,3 +62,31 @@ class Signet(models.Model):
 
     def __str__(self):
         return f"Signet de {self.user.username} sur {self.article.titre}"
+
+class Quiz(models.Model):
+    titre = models.CharField(max_length=150)
+    categorie = models.ForeignKey(Categorie, on_delete=models.CASCADE, related_name='quizzes')
+    description = models.TextField(blank=True, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.titre} ({self.categorie.nom})"
+
+class Question(models.Model):
+    CHOIX_REPONSE = [
+        ('A', 'Option A'),
+        ('B', 'Option B'),
+        ('C', 'Option C'),
+        ('D', 'Option D')
+    ]
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name='questions')
+    texte = models.TextField()
+    choix_a = models.CharField(max_length=200)
+    choix_b = models.CharField(max_length=200)
+    choix_c = models.CharField(max_length=200)
+    choix_d = models.CharField(max_length=200)
+    reponse_correcte = models.CharField(max_length=1, choices=CHOIX_REPONSE)
+    explication = models.TextField(blank=True, default='')
+
+    def __str__(self):
+        return f"Q: {self.texte[:50]}..."

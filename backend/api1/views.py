@@ -2,8 +2,8 @@ from rest_framework import viewsets, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
-from .models import Article, Commentaire, Categorie, Signet
-from .serializers import ArticleSerializer, ArticleReadSerializer, CommentaireSerializer, CommentaireReadSerializer, CategorieSerializer, SignetSerializer, SignetReadSerializer
+from .models import Article, Commentaire, Categorie, Signet, Quiz, Question
+from .serializers import ArticleSerializer, ArticleReadSerializer, CommentaireSerializer, CommentaireReadSerializer, CategorieSerializer, SignetSerializer, SignetReadSerializer, QuizSerializer, QuizDetailSerializer
 
 class CategorieViewSet(viewsets.ModelViewSet):
     queryset = Categorie.objects.all()
@@ -175,3 +175,19 @@ class SignetViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+class QuizViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Quiz.objects.all().order_by('-created_at')
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def get_serializer_class(self):
+        if self.action == 'retrieve':
+            return QuizDetailSerializer
+        return QuizSerializer
+
+    def get_queryset(self):
+        queryset = Quiz.objects.all().order_by('-created_at')
+        categorie_id = self.request.query_params.get('categorie')
+        if categorie_id is not None:
+            queryset = queryset.filter(categorie=categorie_id)
+        return queryset

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Article, Commentaire, UserProfile, Categorie, Signet
+from .models import Article, Commentaire, UserProfile, Categorie, Signet, Quiz, Question
 from rest_framework.authtoken.models import Token
 
 def get_user_has_liked_helper(serializer, obj):
@@ -124,3 +124,24 @@ class SignetReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Signet
         fields = ['id', 'article', 'created_at']
+
+class QuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Question
+        fields = '__all__'
+
+class QuizSerializer(serializers.ModelSerializer):
+    categorie_name = serializers.CharField(source='categorie.nom', read_only=True)
+    questions_count = serializers.IntegerField(source='questions.count', read_only=True)
+
+    class Meta:
+        model = Quiz
+        fields = ['id', 'titre', 'description', 'categorie', 'categorie_name', 'questions_count', 'created_at']
+
+class QuizDetailSerializer(serializers.ModelSerializer):
+    categorie_name = serializers.CharField(source='categorie.nom', read_only=True)
+    questions = QuestionSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Quiz
+        fields = ['id', 'titre', 'description', 'categorie', 'categorie_name', 'questions', 'created_at']

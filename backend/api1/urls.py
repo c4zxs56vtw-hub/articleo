@@ -10,6 +10,7 @@ router.register(r'articles', views.ArticleViewSet)
 router.register(r'commentaires', views.CommentaireViewSet, basename='commentaires')
 router.register(r'categories', views.CategorieViewSet)
 router.register(r'signets', views.SignetViewSet, basename='signets')
+router.register(r'quizzes', views.QuizViewSet, basename='quizzes')
 
 urlpatterns = [
     # On inclut toutes les URL générées automatiquement par le routeur

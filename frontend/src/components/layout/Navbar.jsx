@@ -44,6 +44,9 @@ export const Navbar = () => {
             <NavLink to="/" className={navLinkClass} end>
               Accueil
             </NavLink>
+            <NavLink to="/quizzes" className={navLinkClass}>
+              Quiz QCM
+            </NavLink>
             <NavLink to="/about" className={navLinkClass}>
               À Propos
             </NavLink>
@@ -175,6 +178,13 @@ export const Navbar = () => {
               className="px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold transition-colors"
             >
               Accueil
+            </Link>
+            <Link
+              to="/quizzes"
+              onClick={() => setIsOpen(false)}
+              className="px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold transition-colors"
+            >
+              Quiz QCM
             </Link>
             <Link
               to="/about"

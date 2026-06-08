@@ -15,6 +15,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import Categories from './pages/Categories';
+import Quizzes from './pages/Quizzes';
+import QuizPlay from './pages/QuizPlay';
 import NotFound from './pages/NotFound';
 
 // Notifications
@@ -48,7 +50,7 @@ const AnonymousRoute = ({ children }) => {
 
 export const App = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50/50">
+    <div className="min-h-screen flex flex-col bg-slate-50/50 dark:bg-slate-950">
       {/* Toast Notification Container */}
       <Toaster
         position="top-right"
@@ -71,6 +73,8 @@ export const App = () => {
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/quizzes" element={<Quizzes />} />
+          <Route path="/quizzes/:id" element={<QuizPlay />} />
           <Route path="/articles/:id" element={<ArticleDetail />} />
 
           {/* Protected routes for non-authenticated users */}
