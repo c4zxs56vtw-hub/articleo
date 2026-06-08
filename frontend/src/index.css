@@ -18,6 +18,20 @@
 }
 
 /* Custom premium animations */
+@keyframes float3D {
+  0%, 100% {
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0px) translateZ(0px);
+  }
+  50% {
+    transform: perspective(800px) rotateX(8deg) rotateY(8deg) translateY(-12px) translateZ(30px);
+  }
+}
+
+.animate-float-3d {
+  transform-style: preserve-3d;
+  animation: float3D 6s ease-in-out infinite;
+}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0px) scale(1);

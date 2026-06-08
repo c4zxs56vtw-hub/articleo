@@ -8,6 +8,7 @@ import Badge from '../components/common/Badge';
 import Button from '../components/common/Button';
 import { Trophy, HelpCircle, ArrowRight, Play, LayoutGrid } from 'lucide-react';
 import toast from 'react-hot-toast';
+import Tilt3D from '../components/common/Tilt3D';
 
 export const Quizzes = () => {
   const [quizzes, setQuizzes] = useState([]);
@@ -54,23 +55,25 @@ export const Quizzes = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Header section with illustrations/banner style */}
-      <section className="mb-10 text-center py-12 px-6 rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white shadow-xl relative overflow-hidden animate-gradient-shift">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-200 via-slate-600 to-indigo-900"></div>
-        <div className="absolute top-1/4 left-10 w-24 h-24 bg-indigo-500 rounded-full blur-2xl opacity-20 animate-float pointer-events-none"></div>
-        
-        <div className="relative z-10 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-indigo-200 text-xs font-semibold mb-4">
-            <Trophy className="w-4 h-4 text-yellow-400" />
-            OMNITECH Académie
+      <Tilt3D maxRotate={3} scale={1.01} className="mb-10 shadow-xl rounded-3xl overflow-hidden">
+        <section className="text-center py-12 px-6 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white relative overflow-hidden animate-gradient-shift">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-200 via-slate-600 to-indigo-900"></div>
+          <div className="absolute top-1/4 left-10 w-24 h-24 bg-indigo-500 rounded-full blur-2xl opacity-20 animate-float pointer-events-none"></div>
+          
+          <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-indigo-200 text-xs font-semibold mb-4 animate-float-3d">
+              <Trophy className="w-4 h-4 text-yellow-400" />
+              OMNITECH Académie
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 uppercase">
+              Testez vos connaissances
+            </h1>
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Mesurez-vous à nos questionnaires interactifs rédigés par la communauté. Progressez à votre rythme et devenez un expert dans votre domaine.
+            </p>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 uppercase">
-            Testez vos connaissances
-          </h1>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Mesurez-vous à nos questionnaires interactifs rédigés par la communauté. Progressez à votre rythme et devenez un expert dans votre domaine.
-          </p>
-        </div>
-      </section>
+        </section>
+      </Tilt3D>
 
       {/* Category Filter Panel */}
       <div className="mb-8">
@@ -111,9 +114,9 @@ export const Quizzes = () => {
       ) : quizzes.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {quizzes.map((quiz) => (
-            <div
+            <Tilt3D
               key={quiz.id}
-              className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm p-6 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+              className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm p-6 hover:shadow-lg flex flex-col justify-between"
             >
               <div>
                 <div className="flex justify-between items-start gap-4 mb-4">
@@ -143,7 +146,7 @@ export const Quizzes = () => {
                   </Button>
                 </Link>
               </div>
-            </div>
+            </Tilt3D>
           ))}
         </div>
       ) : (

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, Eye, Calendar, Bookmark, Edit, Trash2 } from 'lucide-react';
 import Badge from './Badge';
+import Tilt3D from './Tilt3D';
 
 export const ArticleCard = ({
   article,
@@ -32,7 +33,8 @@ export const ArticleCard = ({
   };
 
   return (
-    <article className="group relative flex flex-col bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-slate-200 dark:hover:border-slate-700 transition-all duration-300 hover:shadow-lg overflow-hidden h-full">
+    <Tilt3D className="h-full">
+      <article className="group relative flex flex-col bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-slate-200 dark:hover:border-slate-700 transition-all duration-300 hover:shadow-lg overflow-hidden h-full">
       {/* Category & Actions Bar */}
       <div className="flex items-center justify-between px-6 pt-6">
         <div>
@@ -138,7 +140,8 @@ export const ArticleCard = ({
         </div>
       </div>
     </article>
-  );
+  </Tilt3D>
+);
 };
 
 export default ArticleCard;
