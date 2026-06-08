@@ -16,25 +16,25 @@ export const About = () => {
 
       {/* What is OMNITECH section */}
       <section className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-6 sm:p-8 shadow-sm mb-8">
-        <h2 className="text-xl font-bold text-slate-850 dark:text-slate-200 mb-4 flex items-center gap-2">
-          <BookOpen className="w-5.5 h-5.5 text-indigo-900 dark:text-indigo-455" />
+        <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
+          <BookOpen className="w-5 h-5 text-indigo-900 dark:text-indigo-500" />
           Qu'est-ce que OMNITECH ?
         </h2>
-        <p className="text-slate-650 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+        <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
           OMNITECH est une plateforme de publication de blog et d'échanges techniques. Elle permet aux membres de partager leurs connaissances, tutoriels, et astuces à travers des articles structurés, et d'interagir en direct grâce à un système complet de commentaires et d'appréciations.
         </p>
       </section>
 
       {/* How to use section */}
       <section className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-6 sm:p-8 shadow-sm mb-8">
-        <h2 className="text-xl font-bold text-slate-850 dark:text-slate-200 mb-6 flex items-center gap-2">
-          <UserCheck className="w-5.5 h-5.5 text-indigo-900 dark:text-indigo-455" />
+        <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-6 flex items-center gap-2">
+          <UserCheck className="w-5 h-5 text-indigo-900 dark:text-indigo-500" />
           Comment utiliser la plateforme ?
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Visitors */}
-          <div className="p-5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-150 dark:border-slate-800">
+          <div className="p-5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800">
             <h3 className="font-bold text-sm text-indigo-900 dark:text-indigo-400 uppercase tracking-wide mb-3">
               En tant que Visiteur
             </h3>
@@ -55,7 +55,7 @@ export const About = () => {
           </div>
 
           {/* Members */}
-          <div className="p-5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-150 dark:border-slate-800">
+          <div className="p-5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800">
             <h3 className="font-bold text-sm text-indigo-900 dark:text-indigo-400 uppercase tracking-wide mb-3">
               En tant que Membre connecté
             </h3>

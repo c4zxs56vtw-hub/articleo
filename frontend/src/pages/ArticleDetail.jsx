@@ -279,11 +279,11 @@ export const ArticleDetail = () => {
               className={`p-2 rounded-full border transition-all ${
                 bookmarkId
                   ? 'bg-indigo-50 border-indigo-200 text-indigo-900'
-                  : 'bg-white dark:bg-slate-850 border-slate-200 dark:border-slate-750 text-slate-450 dark:text-slate-400 hover:text-slate-850 dark:hover:text-slate-205'
+                  : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
               }`}
               title={bookmarkId ? "Retirer des signets" : "Enregistrer dans mes signets"}
             >
-              <Bookmark className={`w-4.5 h-4.5 ${bookmarkId ? 'fill-indigo-900 dark:fill-indigo-400' : ''}`} />
+              <Bookmark className={`w-5 h-5 ${bookmarkId ? 'fill-indigo-900 dark:fill-indigo-400' : ''}`} />
             </button>
 
             {/* Owner controls (Any authenticated user as there is no specific owner field) */}
@@ -291,17 +291,17 @@ export const ArticleDetail = () => {
               <>
                 <Link
                   to={`/edit-article/${article.id}`}
-                  className="p-2 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-850 text-slate-450 dark:text-slate-300 hover:text-indigo-900 dark:hover:text-indigo-400 transition-colors"
+                  className="p-2 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-400 dark:text-slate-300 hover:text-indigo-900 dark:hover:text-indigo-400 transition-colors"
                   title="Modifier l'article"
                 >
-                  <Edit className="w-4.5 h-4.5" />
+                  <Edit className="w-5 h-5" />
                 </Link>
                 <button
                   onClick={handleDeleteArticle}
-                  className="p-2 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-850 text-slate-450 dark:text-slate-300 hover:text-red-650 dark:hover:text-red-400 transition-colors"
+                  className="p-2 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-400 dark:text-slate-300 hover:text-red-650 dark:hover:text-red-400 transition-colors"
                   title="Supprimer l'article"
                 >
-                  <Trash2 className="w-4.5 h-4.5" />
+                  <Trash2 className="w-5 h-5" />
                 </button>
               </>
             )}
@@ -314,7 +314,7 @@ export const ArticleDetail = () => {
         </h1>
 
         {/* Metadata */}
-        <div className="flex flex-wrap items-center gap-4 text-xs text-slate-450 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 pb-6 mb-6">
+        <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 pb-6 mb-6">
           <span className="flex items-center gap-1">
             <Calendar className="w-3.5 h-3.5" />
             Publié le {formatDate(article.created_at)}
@@ -326,7 +326,7 @@ export const ArticleDetail = () => {
         </div>
 
         {/* Body content */}
-        <div className="prose max-w-none text-slate-650 dark:text-slate-300 leading-relaxed text-base whitespace-pre-wrap">
+        <div className="prose max-w-none text-slate-600 dark:text-slate-300 leading-relaxed text-base whitespace-pre-wrap">
           {article.contenu}
         </div>
 
@@ -348,7 +348,7 @@ export const ArticleDetail = () => {
       {similaires.length > 0 && (
         <section className="bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 sm:p-8 mb-8">
           <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
-            <Sparkles className="w-4.5 h-4.5 text-indigo-900 dark:text-indigo-400" />
+            <Sparkles className="w-5 h-5 text-indigo-900 dark:text-indigo-400" />
             Articles similaires recommandés
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -356,12 +356,12 @@ export const ArticleDetail = () => {
               <Link
                 key={sim.id}
                 to={`/articles/${sim.id}`}
-                className="block p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-slate-350 dark:hover:border-slate-700 transition-colors shadow-sm"
+                className="block p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-slate-300 dark:hover:border-slate-700 transition-colors shadow-sm"
               >
                 <span className="text-xs font-semibold text-indigo-900 dark:text-indigo-400 uppercase tracking-wide block mb-1">
                   {sim.categorie ? sim.categorie.nom : 'Général'}
                 </span>
-                <h4 className="font-bold text-sm text-slate-850 dark:text-slate-250 line-clamp-1 mb-2">
+                <h4 className="font-bold text-sm text-slate-800 dark:text-slate-300 line-clamp-1 mb-2">
                   {sim.titre}
                 </h4>
                 <div className="flex items-center gap-2 text-xs text-slate-400">

@@ -221,7 +221,7 @@ export const Categories = () => {
       >
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           {editingCategory && (
-            <div className="p-3 bg-yellow-50 dark:bg-yellow-950/20 border border-yellow-150 dark:border-yellow-900 text-yellow-800 dark:text-yellow-250 rounded-lg text-xs flex gap-2 items-start">
+            <div className="p-3 bg-yellow-50 dark:bg-yellow-950/20 border border-yellow-200 dark:border-yellow-900 text-yellow-800 dark:text-yellow-300 rounded-lg text-xs flex gap-2 items-start">
               <AlertTriangle className="w-5 h-5 text-yellow-700 dark:text-yellow-500 flex-shrink-0 mt-0.5" />
               <span>
                 <strong>Attention</strong> : Renommer cette catégorie affectera immédiatement tous les articles actuellement associés.
@@ -247,7 +247,7 @@ export const Categories = () => {
             rows={3}
           />
 
-          <div className="flex justify-end gap-2.5 mt-4 pt-3 border-t border-slate-100 dark:border-slate-805">
+          <div className="flex justify-end gap-2.5 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
             <Button variant="outline" onClick={handleCloseModal} disabled={submitting}>
               Annuler
             </Button>

@@ -141,9 +141,9 @@ export const QuizPlay = () => {
             {quiz.description || "Évaluez vos compétences avec ce questionnaire interactif."}
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-450 dark:text-slate-500 border-y border-slate-100 dark:border-slate-800 py-4 mb-8">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400 dark:text-slate-500 border-y border-slate-100 dark:border-slate-800 py-4 mb-8">
             <span>Nombre de questions : <strong className="text-slate-700 dark:text-slate-300">{questions.length}</strong></span>
-            <span className="w-1.5 h-1.5 bg-slate-305 dark:bg-slate-700 rounded-full hidden sm:block"></span>
+            <span className="w-1.5 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full hidden sm:block"></span>
             <span>Règle : <strong className="text-slate-700 dark:text-slate-300">Validation immédiate</strong></span>
           </div>
 
@@ -172,15 +172,15 @@ export const QuizPlay = () => {
           </div>
 
           <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest block mb-1">Résultat final</span>
-          <h1 className="text-3xl font-extrabold text-slate-850 dark:text-slate-100 mb-2">
+          <h1 className="text-3xl font-extrabold text-slate-800 dark:text-slate-100 mb-2">
             {feedback.title}
           </h1>
-          <p className="text-sm text-slate-500 dark:text-slate-450 mb-8 max-w-md mx-auto">
+          <p className="text-sm text-slate-500 dark:text-slate-400 mb-8 max-w-md mx-auto">
             {feedback.msg}
           </p>
 
           {/* Score Circle / Badge details */}
-          <div className="inline-flex flex-col items-center justify-center p-8 bg-slate-50 dark:bg-slate-850/40 border border-slate-100 dark:border-slate-800 rounded-2xl mb-8">
+          <div className="inline-flex flex-col items-center justify-center p-8 bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 rounded-2xl mb-8">
             <span className="text-5xl font-black text-indigo-900 dark:text-indigo-400 mb-1">{score} <span className="text-2xl text-slate-400">/ {questions.length}</span></span>
             <span className={`text-sm font-bold ${feedback.color}`}>{successPercentage}% de réussite</span>
           </div>
@@ -244,12 +244,12 @@ export const QuizPlay = () => {
             const isSelected = selectedOption === option.key;
             const isCorrectAnswer = option.key === currentQuestion.reponse_correcte;
             
-            let btnClass = "border-slate-200 dark:border-slate-805 hover:bg-slate-50 dark:hover:bg-slate-850 hover:border-slate-350 text-slate-700 dark:text-slate-300";
+            let btnClass = "border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-slate-300 text-slate-700 dark:text-slate-300";
             
             if (isSelected) {
-              btnClass = "border-indigo-900 dark:border-indigo-700 bg-indigo-50/50 dark:bg-indigo-950/20 text-indigo-905 dark:text-indigo-400 font-semibold ring-1 ring-indigo-900 dark:ring-indigo-700";
+              btnClass = "border-indigo-900 dark:border-indigo-700 bg-indigo-50/50 dark:bg-indigo-950/20 text-indigo-900 dark:text-indigo-400 font-semibold ring-1 ring-indigo-900 dark:ring-indigo-700";
             }
-
+ 
             if (isValidated) {
               if (isCorrectAnswer) {
                 // Style correct option green
@@ -259,7 +259,7 @@ export const QuizPlay = () => {
                 btnClass = "border-red-500 bg-red-50/50 dark:bg-red-950/20 text-red-700 dark:text-red-400 font-semibold ring-1 ring-red-500";
               } else {
                 // Rest of choices disabled style
-                btnClass = "border-slate-150 dark:border-slate-850 text-slate-400 dark:text-slate-600 opacity-60 cursor-not-allowed";
+                btnClass = "border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-600 opacity-60 cursor-not-allowed";
               }
             }
 
@@ -279,7 +279,7 @@ export const QuizPlay = () => {
                 {isValidated && (
                   <>
                     {isCorrectAnswer && <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />}
-                    {!isCorrectAnswer && isSelected && <XCircle className="w-5 h-5 text-red-650 flex-shrink-0" />}
+                    {!isCorrectAnswer && isSelected && <XCircle className="w-5 h-5 text-red-600 flex-shrink-0" />}
                   </>
                 )}
               </button>
@@ -333,7 +333,7 @@ export const QuizPlay = () => {
             navigate('/quizzes');
           }
         }}
-        className="text-xs font-semibold text-slate-400 hover:text-slate-600 dark:hover:text-slate-350 mx-auto block transition-colors"
+        className="text-xs font-semibold text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 mx-auto block transition-colors"
       >
         Quitter le quiz
       </button>

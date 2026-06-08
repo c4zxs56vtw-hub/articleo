@@ -55,12 +55,12 @@ export const Quizzes = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Header section with illustrations/banner style */}
       <section className="mb-10 text-center py-12 px-6 rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white shadow-xl relative overflow-hidden animate-gradient-shift">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-200 via-slate-650 to-indigo-900"></div>
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-200 via-slate-600 to-indigo-900"></div>
         <div className="absolute top-1/4 left-10 w-24 h-24 bg-indigo-500 rounded-full blur-2xl opacity-20 animate-float pointer-events-none"></div>
         
         <div className="relative z-10 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-indigo-200 text-xs font-semibold mb-4">
-            <Trophy className="w-4 h-4 text-yellow-405" />
+            <Trophy className="w-4 h-4 text-yellow-400" />
             OMNITECH Académie
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 uppercase">
@@ -80,7 +80,7 @@ export const Quizzes = () => {
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold border transition-all duration-200 flex items-center gap-1.5 ${
               selectedCategory === ''
                 ? 'bg-indigo-900 border-indigo-900 text-white dark:bg-indigo-700 dark:border-indigo-700 shadow-md shadow-indigo-900/10'
-                : 'bg-white border-slate-200 text-slate-600 hover:border-slate-350 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700'
+                : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700'
             }`}
           >
             <LayoutGrid className="w-4 h-4" />
@@ -94,7 +94,7 @@ export const Quizzes = () => {
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold border transition-all duration-205 ${
                 selectedCategory === cat.id.toString()
                   ? 'bg-indigo-900 border-indigo-900 text-white dark:bg-indigo-700 dark:border-indigo-700 shadow-md shadow-indigo-900/10'
-                  : 'bg-white border-slate-200 text-slate-655 hover:border-slate-350 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700'
+                  : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700'
               }`}
             >
               {cat.nom}

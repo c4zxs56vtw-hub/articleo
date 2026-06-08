@@ -50,13 +50,13 @@ const AnonymousRoute = ({ children }) => {
 
 export const App = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50/50 dark:bg-slate-950">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 transition-colors duration-200">
       {/* Toast Notification Container */}
       <Toaster
         position="top-right"
         toastOptions={{
           duration: 3500,
-          className: 'text-sm font-semibold rounded-xl text-slate-800 shadow-lg border border-slate-100 bg-white/90 backdrop-blur-md',
+          className: 'text-sm font-semibold rounded-xl text-slate-800 dark:text-slate-100 shadow-lg border border-slate-100 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md',
           success: {
             iconTheme: {
               primary: '#312e81',

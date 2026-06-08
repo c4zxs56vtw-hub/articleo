@@ -39,7 +39,7 @@ export const CommentCard = ({
           {onDelete && (
             <button
               onClick={() => onDelete(id)}
-              className="p-1 rounded-full text-slate-400 hover:bg-red-50 dark:hover:bg-red-950/20 hover:text-red-650 transition-colors"
+              className="p-1 rounded-full text-slate-400 hover:bg-red-50 dark:hover:bg-red-950/20 hover:text-red-600 transition-colors"
               title="Supprimer le commentaire"
             >
               <Trash2 className="w-3.5 h-3.5" />
@@ -48,7 +48,7 @@ export const CommentCard = ({
         </div>
 
         {/* Text */}
-        <p className="text-sm text-slate-650 dark:text-slate-350 leading-relaxed whitespace-pre-wrap mb-3">
+        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-wrap mb-3">
           {texte}
         </p>
 
@@ -63,7 +63,7 @@ export const CommentCard = ({
                 : 'hover:text-red-500'
             }`}
           >
-            <Heart className={`w-3.5 h-3.5 ${user_has_liked ? 'fill-red-650 stroke-red-650' : ''}`} />
+            <Heart className={`w-3.5 h-3.5 ${user_has_liked ? 'fill-red-600 stroke-red-600' : ''}`} />
             <span>{likes_count} j'aime</span>
           </button>
         </div>

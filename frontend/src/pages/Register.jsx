@@ -80,7 +80,7 @@ export const Register = () => {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
-      <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-805 p-8 rounded-2xl shadow-xl">
+      <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 rounded-2xl shadow-xl">
         {/* Title */}
         <div className="text-center mb-8">
           <span className="text-2xl font-black tracking-wider text-indigo-900 dark:text-indigo-400 uppercase">

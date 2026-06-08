@@ -55,7 +55,7 @@ export const ArticleCard = ({
               disabled={isLoadingBookmark}
               className={`p-1.5 rounded-full transition-colors ${
                 isBookmarked
-                  ? 'text-indigo-900 bg-indigo-50 dark:bg-indigo-950/40 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-905'
+                  ? 'text-indigo-900 bg-indigo-50 dark:bg-indigo-950/40 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900'
                   : 'text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-600 dark:hover:text-slate-200'
               }`}
               title={isBookmarked ? "Retirer des signets" : "Ajouter aux signets"}
@@ -127,12 +127,12 @@ export const ArticleCard = ({
             disabled={isLoadingLike || !onLike}
             className={`flex items-center gap-1 transition-colors ${
               user_has_liked 
-                ? 'text-red-600 dark:text-red-450 font-semibold' 
+                ? 'text-red-600 dark:text-red-400 font-semibold' 
                 : 'hover:text-red-500 dark:hover:text-red-400'
             }`}
             title={user_has_liked ? "Je n'aime plus" : "J'aime"}
           >
-            <Heart className={`w-3.5 h-3.5 ${user_has_liked ? 'fill-red-600 stroke-red-650' : ''}`} />
+            <Heart className={`w-3.5 h-3.5 ${user_has_liked ? 'fill-red-600 stroke-red-600' : ''}`} />
             <span>{likes_count}</span>
           </button>
         </div>

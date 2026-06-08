@@ -20,14 +20,14 @@ export const Navbar = () => {
   };
 
   const navLinkClass = ({ isActive }) =>
-    `text-sm font-semibold transition-colors duration-250 py-2 border-b-2 ${
+    `text-sm font-semibold transition-colors duration-200 py-2 border-b-2 ${
       isActive
         ? 'border-indigo-900 dark:border-indigo-400 text-indigo-900 dark:text-indigo-400 font-bold'
         : 'border-transparent text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
     }`;
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-150/80 dark:border-slate-800">
+    <header className="sticky top-0 z-40 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo / Brand name */}
@@ -76,7 +76,7 @@ export const Navbar = () => {
                 <div className="relative">
                   <button
                     onClick={() => setShowProfileMenu(!showProfileMenu)}
-                    className="flex items-center gap-2 p-1.5 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-750 transition-colors focus:outline-none"
+                    className="flex items-center gap-2 p-1.5 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors focus:outline-none"
                   >
                     <div className="w-8 h-8 rounded-full bg-indigo-900 text-white flex items-center justify-center font-bold text-sm">
                       {user.username.substring(0, 2).toUpperCase()}
@@ -123,7 +123,7 @@ export const Navbar = () => {
                         
                         <button
                           onClick={handleLogout}
-                          className="flex w-full items-center gap-2 px-3 py-2 text-sm text-red-650 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors text-left"
+                          className="flex w-full items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors text-left"
                         >
                           <LogOut className="w-4 h-4 text-red-400" />
                           <span>Déconnexion</span>
@@ -135,7 +135,7 @@ export const Navbar = () => {
               </div>
             ) : (
               <div className="flex items-center gap-3">
-                <Link to="/login" className="text-sm font-semibold text-slate-650 hover:text-slate-900 transition-colors">
+                <Link to="/login" className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">
                   Connexion
                 </Link>
                 <Button
@@ -170,7 +170,7 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden border-b border-slate-150 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md py-4 px-4 space-y-4">
+        <div className="md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md py-4 px-4 space-y-4">
           <nav className="flex flex-col gap-2">
             <Link
               to="/"
@@ -232,9 +232,9 @@ export const Navbar = () => {
 
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-2 px-3 py-2 text-sm text-red-650 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors text-left"
+                  className="flex items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors text-left"
                 >
-                  <LogOut className="w-4.5 h-4.5 text-red-400" />
+                  <LogOut className="w-4 h-4 text-red-400" />
                   <span>Déconnexion</span>
                 </button>
               </div>
@@ -243,7 +243,7 @@ export const Navbar = () => {
                 <Link
                   to="/login"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center py-2 text-sm font-semibold text-slate-650 hover:bg-slate-50 rounded-lg transition-colors"
+                  className="flex items-center justify-center py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
                 >
                   Connexion
                 </Link>
